@@ -12,6 +12,8 @@ public class EnterGateController : MonoBehaviour {
     public GameObject whale;
     public GameObject clichGif;
 
+    public GameObject sphere;
+
     public GameObject humanWhale;
     public GameObject arrowObject;
     public GameObject arrowMeterialObject;
@@ -53,7 +55,7 @@ public class EnterGateController : MonoBehaviour {
         arrow_green = _arrowMat.color.g;
         arrow_blue = _arrowMat.color.b;
         //_arrowMat.color = new Color(_arrowMat.color.r, _arrowMat.color.g, _arrowMat.color.b, 0.2f);
-
+        //sphere.GetComponent<Renderer>().material.shader = Shader.Find("Standard");
     }
 
 
@@ -87,7 +89,7 @@ public class EnterGateController : MonoBehaviour {
             // Condition 2: The distance between the Main Camera(people site) and the Gate is within 0.5 meter. 
             if (isFirstEnter && distance < 0)
             {
-
+                sphere.GetComponent<Renderer>().material.shader = Shader.Find("InsideVisible");
                 isFirstEnter = false;
                 // whale appear, gate disappear, clickHintGif appear when enter gate within 0.5 meter
                 if (!whale.activeSelf) {
@@ -107,28 +109,41 @@ public class EnterGateController : MonoBehaviour {
                 Debug.Log("tmac currentDistance = " + currentDistance + " / preDistance = " + preDistance);
                 if (currentDistance <= 0.5)
                 {
-                    defaultSound.Play();
+                    if (!defaultSound.isPlaying) {
+                        defaultSound.Play();
+                    }
                     //arrowObject.SetActive(false);
                     _arrowMat.color = new Color(arrow_red, arrow_green, arrow_blue, 0);
                 }
-                else if (currentDistance - preDistance < -0.05)
-                {
-                    if (_arrowMat.color.a >= 0.15) {
-                        Debug.Log("tmac currentAlpha = " + _arrowMat.color.a);
-                        _arrowMat.color = new Color(arrow_red, arrow_green, arrow_blue, (_arrowMat.color.a - 0.15f));
-                    }
-                    preDistance = currentDistance;
-                }
-                else if (currentDistance - preDistance > 0.05)
-                {
-                    if (_arrowMat.color.a <= 0.85)
+                else {
+                    if (defaultSound.isPlaying)
                     {
-                        _arrowMat.color = new Color(arrow_red, arrow_green, arrow_blue, (_arrowMat.color.a + 0.15f));
+                        defaultSound.Pause();
                     }
-                    preDistance = currentDistance;
+                    if (currentDistance - preDistance < -0.05)
+                    {
+                        if (_arrowMat.color.a >= 0.15)
+                        {
+                            Debug.Log("tmac currentAlpha = " + _arrowMat.color.a);
+                            _arrowMat.color = new Color(arrow_red, arrow_green, arrow_blue, (_arrowMat.color.a - 0.15f));
+                        }
+                        preDistance = currentDistance;
+                    }
+                    else if (currentDistance - preDistance > 0.05)
+                    {
+                        if (_arrowMat.color.a <= 0.85)
+                        {
+                            _arrowMat.color = new Color(arrow_red, arrow_green, arrow_blue, (_arrowMat.color.a + 0.15f));
+                        }
+                        preDistance = currentDistance;
+                    }
                 }
+                
             }
             else if(distance > 0){
+
+                sphere.GetComponent<Renderer>().material.shader = Shader.Find("Standard");
+
                 //whale.SetActive(false);
                 isFirstEnter = true;
                 if (_arrowMat.color.a < 1) {
@@ -144,6 +159,7 @@ public class EnterGateController : MonoBehaviour {
                 if (clichGif.activeSelf) {
                     clichGif.SetActive(false);
                 }
+
                 
 
             }
