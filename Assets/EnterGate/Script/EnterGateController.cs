@@ -32,6 +32,8 @@ public class EnterGateController : MonoBehaviour {
     private float arrow_green;
     private float arrow_blue;
 
+    public GameObject QiPao;
+
     public static bool IsFirstEnterGate() {
         return isFirstEnter;
     }
@@ -43,7 +45,7 @@ public class EnterGateController : MonoBehaviour {
         //arrowObject = GameObject.Find("Arrow");
         seaGateObject = GameObject.Find("seaGate");
         gateObject = GameObject.Find("Gate");
-        qipaoObject = GameObject.Find("qiPao");
+        //qipaoObject = GameObject.Find("qiPao");
         mainTran = GameObject.Find("Main Camera").transform;
         camera = GameObject.Find("Main Camera").GetComponent<Camera>();
         gateTran = gateObject.transform;
@@ -89,6 +91,8 @@ public class EnterGateController : MonoBehaviour {
             // Condition 2: The distance between the Main Camera(people site) and the Gate is within 0.5 meter. 
             if (isFirstEnter && distance < 0)
             {
+                QiPao.SetActive(true);
+
                 sphere.GetComponent<Renderer>().material.shader = Shader.Find("InsideVisible");
                 isFirstEnter = false;
                 // whale appear, gate disappear, clickHintGif appear when enter gate within 0.5 meter
@@ -97,7 +101,7 @@ public class EnterGateController : MonoBehaviour {
                 }
                 whaleRenderer.enabled = true;
                 //seaGateObject.SetActive(false);
-                qipaoObject.SetActive(false);
+                //qipaoObject.SetActive(false);
                 //arrowObject.SetActive(false);
                 //clichGif.SetActive(true);
                 //gifHintVisiable = true;
@@ -141,6 +145,7 @@ public class EnterGateController : MonoBehaviour {
                 
             }
             else if(distance > 0){
+                QiPao.SetActive(false);
 
                 sphere.GetComponent<Renderer>().material.shader = Shader.Find("Standard");
 
