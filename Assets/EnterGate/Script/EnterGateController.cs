@@ -13,6 +13,7 @@ public class EnterGateController : MonoBehaviour {
     public GameObject clichGif;
 
     public GameObject sphere;
+    private Renderer sphereRenderer;
 
     public GameObject humanWhale;
     public GameObject arrowObject;
@@ -58,6 +59,7 @@ public class EnterGateController : MonoBehaviour {
         arrow_blue = _arrowMat.color.b;
         //_arrowMat.color = new Color(_arrowMat.color.r, _arrowMat.color.g, _arrowMat.color.b, 0.2f);
         //sphere.GetComponent<Renderer>().material.shader = Shader.Find("Standard");
+        sphereRenderer = sphere.GetComponent<Renderer>();
     }
 
 
@@ -91,15 +93,20 @@ public class EnterGateController : MonoBehaviour {
             // Condition 2: The distance between the Main Camera(people site) and the Gate is within 0.5 meter. 
             if (isFirstEnter && distance < 0)
             {
+                isFirstEnter = false;
+
                 QiPao.SetActive(true);
 
-                sphere.GetComponent<Renderer>().material.shader = Shader.Find("InsideVisible");
-                isFirstEnter = false;
+                
+                //sphere.GetComponent<Renderer>().material.shader = Shader.Find("InsideVisible");
+
                 // whale appear, gate disappear, clickHintGif appear when enter gate within 0.5 meter
                 if (!whale.activeSelf) {
                     whale.SetActive(true);
                 }
                 whaleRenderer.enabled = true;
+
+                sphereRenderer.enabled = true;
                 //seaGateObject.SetActive(false);
                 //qipaoObject.SetActive(false);
                 //arrowObject.SetActive(false);
@@ -147,7 +154,11 @@ public class EnterGateController : MonoBehaviour {
             else if(distance > 0){
                 QiPao.SetActive(false);
 
-                sphere.GetComponent<Renderer>().material.shader = Shader.Find("Standard");
+                //sphere.GetComponent<Renderer>().material.shader = Shader.Find("Standard");
+                if (sphereRenderer.enabled)
+                {
+                    sphereRenderer.enabled = false;
+                }
 
                 //whale.SetActive(false);
                 isFirstEnter = true;
