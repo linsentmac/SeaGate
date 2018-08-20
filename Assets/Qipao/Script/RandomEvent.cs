@@ -74,10 +74,10 @@ public class RandomEvent : MonoBehaviour {
                 float offZ = UnityEngine.Random.Range(-1, 2);
 
                 //控制泡泡的边界
-                while (posX + offX >= 20 / 5 || posX + offX <= -20 / 5) {
+                while (posX + offX >= 15 / 5 || posX + offX <= -15 / 5) {
                     offX = UnityEngine.Random.Range(-1, 2);
                 }
-                while (posZ + offZ >= 45 / 5 || posZ + offZ <= 15 / 5) {
+                while (posZ + offZ >= (float)32 / 5 || posZ + offZ <= (float)12 / 5) {
                     offZ = UnityEngine.Random.Range(-1, 2);
                 }
 
