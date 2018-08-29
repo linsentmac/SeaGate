@@ -1,0 +1,600 @@
+fileFormatVersion: 2
+guid: d085b9e31b6b83141926044bda2bb57c
+timeCreated: 1480930021
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Bone049
+    100002: Bone050
+    100004: Bone051
+    100006: Bone052
+    100008: Bone053
+    100010: Bone054
+    100012: Bone055
+    100014: Bone056
+    100016: Bone057
+    100018: Bone058
+    100020: Bone059
+    100022: Bone060
+    100024: Bone061
+    100026: Bone062
+    100028: Bone063
+    100030: Bone064
+    100032: Bone065
+    100034: Bone066
+    100036: Bone067
+    100038: Bone068
+    100040: Bone069
+    100042: Bone070
+    100044: Bone071
+    100046: Bone072
+    100048: group1
+    100050: group2
+    100052: group3
+    100054: group4
+    100056: group5
+    100058: group8
+    100060: humpback_whale_exp1_002
+    100062: Path-Whale-reference
+    100064: pCube10
+    100066: pCube11
+    100068: pCube12
+    100070: pCube13
+    100072: pCube14
+    100074: pCube15
+    100076: pCube16
+    100078: pCube2
+    100080: pCube26
+    100082: pCube29
+    100084: pCube3
+    100086: pCube30
+    100088: pCube31
+    100090: pCube52
+    100092: pCube53
+    100094: pCube54
+    100096: pCube55
+    100098: pCube56
+    100100: pCylinder25
+    100102: pCylinder52
+    100104: pCylinder60
+    100106: pCylinder61
+    100108: pCylinder62
+    100110: pCylinder63
+    100112: pCylinder64
+    100114: pCylinder65
+    100116: pCylinder66
+    100118: pCylinder67
+    100120: pCylinder68
+    100122: pCylinder69
+    100124: pCylinder70
+    100126: pCylinder71
+    100128: pCylinder72
+    100130: pCylinder73
+    100132: pCylinder74
+    100134: pCylinder76
+    100136: pCylinder77
+    100138: pCylinder78
+    100140: pCylinder79
+    100142: pCylinder80
+    100144: pCylinder81
+    100146: pCylinder82
+    100148: pCylinder83
+    100150: pCylinder84
+    100152: pCylinder85
+    100154: pCylinder86
+    100156: pCylinder87
+    100158: pCylinder88
+    100160: pPlane1
+    100162: pPlane2
+    100164: pPlane3
+    100166: TV-2
+    100168: Whale
+    100170: //RootNode
+    400000: Bone049
+    400002: Bone050
+    400004: Bone051
+    400006: Bone052
+    400008: Bone053
+    400010: Bone054
+    400012: Bone055
+    400014: Bone056
+    400016: Bone057
+    400018: Bone058
+    400020: Bone059
+    400022: Bone060
+    400024: Bone061
+    400026: Bone062
+    400028: Bone063
+    400030: Bone064
+    400032: Bone065
+    400034: Bone066
+    400036: Bone067
+    400038: Bone068
+    400040: Bone069
+    400042: Bone070
+    400044: Bone071
+    400046: Bone072
+    400048: group1
+    400050: group2
+    400052: group3
+    400054: group4
+    400056: group5
+    400058: group8
+    400060: humpback_whale_exp1_002
+    400062: Path-Whale-reference
+    400064: pCube10
+    400066: pCube11
+    400068: pCube12
+    400070: pCube13
+    400072: pCube14
+    400074: pCube15
+    400076: pCube16
+    400078: pCube2
+    400080: pCube26
+    400082: pCube29
+    400084: pCube3
+    400086: pCube30
+    400088: pCube31
+    400090: pCube52
+    400092: pCube53
+    400094: pCube54
+    400096: pCube55
+    400098: pCube56
+    400100: pCylinder25
+    400102: pCylinder52
+    400104: pCylinder60
+    400106: pCylinder61
+    400108: pCylinder62
+    400110: pCylinder63
+    400112: pCylinder64
+    400114: pCylinder65
+    400116: pCylinder66
+    400118: pCylinder67
+    400120: pCylinder68
+    400122: pCylinder69
+    400124: pCylinder70
+    400126: pCylinder71
+    400128: pCylinder72
+    400130: pCylinder73
+    400132: pCylinder74
+    400134: pCylinder76
+    400136: pCylinder77
+    400138: pCylinder78
+    400140: pCylinder79
+    400142: pCylinder80
+    400144: pCylinder81
+    400146: pCylinder82
+    400148: pCylinder83
+    400150: pCylinder84
+    400152: pCylinder85
+    400154: pCylinder86
+    400156: pCylinder87
+    400158: pCylinder88
+    400160: pPlane1
+    400162: pPlane2
+    400164: pPlane3
+    400166: TV-2
+    400168: Whale
+    400170: //RootNode
+    2300000: pCube10
+    2300002: pCube11
+    2300004: pCube12
+    2300006: pCube13
+    2300008: pCube14
+    2300010: pCube15
+    2300012: pCube16
+    2300014: pCube2
+    2300016: pCube26
+    2300018: pCube29
+    2300020: pCube3
+    2300022: pCube30
+    2300024: pCube31
+    2300026: pCube52
+    2300028: pCube53
+    2300030: pCube54
+    2300032: pCube55
+    2300034: pCube56
+    2300036: pCylinder25
+    2300038: pCylinder52
+    2300040: pCylinder60
+    2300042: pCylinder61
+    2300044: pCylinder62
+    2300046: pCylinder63
+    2300048: pCylinder64
+    2300050: pCylinder65
+    2300052: pCylinder66
+    2300054: pCylinder67
+    2300056: pCylinder68
+    2300058: pCylinder69
+    2300060: pCylinder70
+    2300062: pCylinder71
+    2300064: pCylinder72
+    2300066: pCylinder73
+    2300068: pCylinder74
+    2300070: pCylinder76
+    2300072: pCylinder77
+    2300074: pCylinder78
+    2300076: pCylinder79
+    2300078: pCylinder80
+    2300080: pCylinder81
+    2300082: pCylinder82
+    2300084: pCylinder83
+    2300086: pCylinder84
+    2300088: pCylinder85
+    2300090: pCylinder86
+    2300092: pCylinder87
+    2300094: pCylinder88
+    2300096: pPlane1
+    2300098: pPlane2
+    2300100: pPlane3
+    3300000: pCube10
+    3300002: pCube11
+    3300004: pCube12
+    3300006: pCube13
+    3300008: pCube14
+    3300010: pCube15
+    3300012: pCube16
+    3300014: pCube2
+    3300016: pCube26
+    3300018: pCube29
+    3300020: pCube3
+    3300022: pCube30
+    3300024: pCube31
+    3300026: pCube52
+    3300028: pCube53
+    3300030: pCube54
+    3300032: pCube55
+    3300034: pCube56
+    3300036: pCylinder25
+    3300038: pCylinder52
+    3300040: pCylinder60
+    3300042: pCylinder61
+    3300044: pCylinder62
+    3300046: pCylinder63
+    3300048: pCylinder64
+    3300050: pCylinder65
+    3300052: pCylinder66
+    3300054: pCylinder67
+    3300056: pCylinder68
+    3300058: pCylinder69
+    3300060: pCylinder70
+    3300062: pCylinder71
+    3300064: pCylinder72
+    3300066: pCylinder73
+    3300068: pCylinder74
+    3300070: pCylinder76
+    3300072: pCylinder77
+    3300074: pCylinder78
+    3300076: pCylinder79
+    3300078: pCylinder80
+    3300080: pCylinder81
+    3300082: pCylinder82
+    3300084: pCylinder83
+    3300086: pCylinder84
+    3300088: pCylinder85
+    3300090: pCylinder86
+    3300092: pCylinder87
+    3300094: pCylinder88
+    3300096: pPlane1
+    3300098: pPlane2
+    3300100: pPlane3
+    4300000: pCube10
+    4300002: pCube2
+    4300004: pCube11
+    4300006: pCube30
+    4300008: pCube3
+    4300010: pCube26
+    4300012: pCube52
+    4300014: pCube56
+    4300016: pCube54
+    4300018: pCube31
+    4300020: pCube12
+    4300022: pCube13
+    4300024: pCube14
+    4300026: pCube15
+    4300028: pCube16
+    4300030: pCylinder25
+    4300032: pCube29
+    4300034: pCube55
+    4300036: pCube53
+    4300038: pCylinder66
+    4300040: pCylinder65
+    4300042: pCylinder64
+    4300044: pCylinder63
+    4300046: pCylinder62
+    4300048: pCylinder61
+    4300050: pCylinder60
+    4300052: pCylinder52
+    4300054: pCylinder67
+    4300056: pCylinder68
+    4300058: pCylinder69
+    4300060: pCylinder70
+    4300062: pCylinder71
+    4300064: pCylinder72
+    4300066: pCylinder73
+    4300068: pCylinder74
+    4300070: pCylinder76
+    4300072: pCylinder77
+    4300074: pCylinder78
+    4300076: pCylinder79
+    4300078: pCylinder80
+    4300080: pCylinder81
+    4300082: pCylinder82
+    4300084: pCylinder83
+    4300086: pCylinder84
+    4300088: pCylinder85
+    4300090: pCylinder86
+    4300092: pCylinder87
+    4300094: pCylinder88
+    4300096: pPlane1
+    4300098: pPlane2
+    4300100: pPlane3
+    4300102: humpback_whale_exp1_002
+    7400000: V-06
+    9500000: //RootNode
+    13700000: humpback_whale_exp1_002
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: V-06
+      takeName: V-06
+      firstFrame: 360
+      lastFrame: 1360
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Path-Whale-reference
+        weight: 1
+      - path: TV-2
+        weight: 1
+      - path: TV-2/group8
+        weight: 1
+      - path: TV-2/group8/group1
+        weight: 1
+      - path: TV-2/group8/group1/pCube2
+        weight: 1
+      - path: TV-2/group8/group1/pCube10
+        weight: 1
+      - path: TV-2/group8/group1/pCube11
+        weight: 1
+      - path: TV-2/group8/group2
+        weight: 1
+      - path: TV-2/group8/group2/pCube3
+        weight: 1
+      - path: TV-2/group8/group2/pCube26
+        weight: 1
+      - path: TV-2/group8/group2/pCube30
+        weight: 1
+      - path: TV-2/group8/group2/pCube31
+        weight: 1
+      - path: TV-2/group8/group2/pCube52
+        weight: 1
+      - path: TV-2/group8/group2/pCube54
+        weight: 1
+      - path: TV-2/group8/group2/pCube56
+        weight: 1
+      - path: TV-2/group8/group3
+        weight: 1
+      - path: TV-2/group8/group3/pCube12
+        weight: 1
+      - path: TV-2/group8/group3/pCube13
+        weight: 1
+      - path: TV-2/group8/group3/pCube14
+        weight: 1
+      - path: TV-2/group8/group3/pCube15
+        weight: 1
+      - path: TV-2/group8/group3/pCube16
+        weight: 1
+      - path: TV-2/group8/group3/pCube29
+        weight: 1
+      - path: TV-2/group8/group3/pCube53
+        weight: 1
+      - path: TV-2/group8/group3/pCube55
+        weight: 1
+      - path: TV-2/group8/group3/pCylinder25
+        weight: 1
+      - path: TV-2/group8/group3/pCylinder52
+        weight: 1
+      - path: TV-2/group8/group3/pCylinder60
+        weight: 1
+      - path: TV-2/group8/group3/pCylinder61
+        weight: 1
+      - path: TV-2/group8/group3/pCylinder62
+        weight: 1
+      - path: TV-2/group8/group3/pCylinder63
+        weight: 1
+      - path: TV-2/group8/group3/pCylinder64
+        weight: 1
+      - path: TV-2/group8/group3/pCylinder65
+        weight: 1
+      - path: TV-2/group8/group3/pCylinder66
+        weight: 1
+      - path: TV-2/group8/group4
+        weight: 1
+      - path: TV-2/group8/group4/pCylinder67
+        weight: 1
+      - path: TV-2/group8/group4/pCylinder68
+        weight: 1
+      - path: TV-2/group8/group4/pCylinder69
+        weight: 1
+      - path: TV-2/group8/group4/pCylinder70
+        weight: 1
+      - path: TV-2/group8/group4/pCylinder71
+        weight: 1
+      - path: TV-2/group8/group4/pCylinder72
+        weight: 1
+      - path: TV-2/group8/group4/pCylinder73
+        weight: 1
+      - path: TV-2/group8/group4/pCylinder74
+        weight: 1
+      - path: TV-2/group8/group4/pCylinder76
+        weight: 1
+      - path: TV-2/group8/group4/pCylinder77
+        weight: 1
+      - path: TV-2/group8/group4/pCylinder78
+        weight: 1
+      - path: TV-2/group8/group4/pCylinder79
+        weight: 1
+      - path: TV-2/group8/group4/pCylinder80
+        weight: 1
+      - path: TV-2/group8/group4/pCylinder81
+        weight: 1
+      - path: TV-2/group8/group4/pCylinder82
+        weight: 1
+      - path: TV-2/group8/group4/pCylinder83
+        weight: 1
+      - path: TV-2/group8/group4/pCylinder84
+        weight: 1
+      - path: TV-2/group8/group4/pCylinder85
+        weight: 1
+      - path: TV-2/group8/group4/pCylinder86
+        weight: 1
+      - path: TV-2/group8/group4/pCylinder87
+        weight: 1
+      - path: TV-2/group8/group4/pCylinder88
+        weight: 1
+      - path: TV-2/group8/group5
+        weight: 1
+      - path: TV-2/group8/group5/pPlane1
+        weight: 1
+      - path: TV-2/group8/group5/pPlane2
+        weight: 1
+      - path: TV-2/group8/group5/pPlane3
+        weight: 1
+      - path: Whale
+        weight: 1
+      - path: Whale/Bone049
+        weight: 1
+      - path: Whale/Bone049/Bone050
+        weight: 1
+      - path: Whale/Bone049/Bone050/Bone051
+        weight: 1
+      - path: Whale/Bone049/Bone050/Bone051/Bone052
+        weight: 1
+      - path: Whale/Bone049/Bone050/Bone051/Bone052/Bone053
+        weight: 1
+      - path: Whale/Bone049/Bone050/Bone051/Bone052/Bone053/Bone054
+        weight: 1
+      - path: Whale/Bone049/Bone055
+        weight: 1
+      - path: Whale/Bone049/Bone055/Bone056
+        weight: 1
+      - path: Whale/Bone049/Bone055/Bone056/Bone057
+        weight: 1
+      - path: Whale/Bone049/Bone055/Bone056/Bone057/Bone058
+        weight: 1
+      - path: Whale/Bone049/Bone055/Bone056/Bone057/Bone058/Bone059
+        weight: 1
+      - path: Whale/Bone049/Bone060
+        weight: 1
+      - path: Whale/Bone049/Bone060/Bone061
+        weight: 1
+      - path: Whale/Bone049/Bone060/Bone061/Bone062
+        weight: 1
+      - path: Whale/Bone049/Bone060/Bone061/Bone062/Bone063
+        weight: 1
+      - path: Whale/Bone049/Bone060/Bone061/Bone062/Bone063/Bone064
+        weight: 1
+      - path: Whale/Bone049/Bone060/Bone061/Bone062/Bone063/Bone064/Bone065
+        weight: 1
+      - path: Whale/Bone049/Bone060/Bone061/Bone062/Bone063/Bone064/Bone065/Bone066
+        weight: 1
+      - path: Whale/Bone049/Bone060/Bone061/Bone062/Bone063/Bone064/Bone065/Bone066/Bone067
+        weight: 1
+      - path: Whale/Bone049/Bone060/Bone061/Bone062/Bone063/Bone064/Bone065/Bone066/Bone067/Bone068
+        weight: 1
+      - path: Whale/Bone049/Bone060/Bone061/Bone062/Bone063/Bone064/Bone065/Bone066/Bone067/Bone068/Bone069
+        weight: 1
+      - path: Whale/Bone049/Bone070
+        weight: 1
+      - path: Whale/Bone049/Bone070/Bone071
+        weight: 1
+      - path: Whale/Bone049/Bone070/Bone071/Bone072
+        weight: 1
+      - path: Whale/humpback_whale_exp1_002
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
