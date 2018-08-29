@@ -18,6 +18,7 @@ public class EnterGateController : MonoBehaviour {
     public GameObject humanWhale;
     public GameObject arrowObject;
     public GameObject arrowMeterialObject;
+    public GameObject coralObject;
     private GameObject seaGateObject;
     private GameObject gateObject;
     private GameObject qipaoObject;
@@ -97,6 +98,7 @@ public class EnterGateController : MonoBehaviour {
 
                 QiPao.SetActive(true);
 
+                coralObject.SetActive(true);
                 
                 //sphere.GetComponent<Renderer>().material.shader = Shader.Find("InsideVisible");
 
@@ -106,7 +108,8 @@ public class EnterGateController : MonoBehaviour {
                 }
                 whaleRenderer.enabled = true;
 
-                sphereRenderer.enabled = true;
+                //sphereRenderer.enabled = true;
+
                 //seaGateObject.SetActive(false);
                 //qipaoObject.SetActive(false);
                 //arrowObject.SetActive(false);
@@ -157,7 +160,7 @@ public class EnterGateController : MonoBehaviour {
                 //sphere.GetComponent<Renderer>().material.shader = Shader.Find("Standard");
                 if (sphereRenderer.enabled)
                 {
-                    sphereRenderer.enabled = false;
+                    //sphereRenderer.enabled = false;
                 }
 
                 //whale.SetActive(false);
@@ -176,6 +179,9 @@ public class EnterGateController : MonoBehaviour {
                     clichGif.SetActive(false);
                 }
 
+                if (coralObject.activeSelf) {
+                    coralObject.SetActive(false);
+                }
                 
 
             }
@@ -197,6 +203,25 @@ public class EnterGateController : MonoBehaviour {
         if (Input.GetKeyUp(KeyCode.JoystickButton0) && gifHintVisiable)
         {
             releaseGifAnimation();
+        }
+
+        if (Input.GetKeyUp(KeyCode.JoystickButton0))
+        {
+            if (coralObject.activeSelf)
+            {
+                //coralObject.SetActive(false);
+            }
+            else {
+                //coralObject.SetActive(true);
+            }
+
+            if (whaleRenderer.enabled)
+            {
+                //whaleRenderer.enabled = false;
+            }
+            else {
+                //whaleRenderer.enabled = true;
+            }
         }
     }
 
