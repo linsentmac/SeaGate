@@ -9780,8 +9780,8 @@ MonoBehaviour:
     overlayHdr: 0
     vSyncCount: 1
     masterTextureLimit: 0
-    cpuPerfLevel: 2
-    gpuPerfLevel: 2
+    cpuPerfLevel: 3
+    gpuPerfLevel: 3
   head: {fileID: 1864083343}
   monoCamera: {fileID: 0}
   leftCamera: {fileID: 1482108460}
