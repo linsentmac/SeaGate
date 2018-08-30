@@ -241,7 +241,7 @@ PlayerSettings:
   AndroidTargetArchitectures: 5
   AndroidSplashScreenScale: 2
   androidSplashScreen: {fileID: 2800000, guid: c2a509cbe40f48e4291d053822076f08, type: 3}
-  AndroidKeystoreName: D:/Projects/Unity Projects/SeaGate/SeaGate/Sunflower.keystore
+  AndroidKeystoreName: D:/G1/Fish/SeaGate/Sunflower.keystore
   AndroidKeyaliasName: androiddebugkey
   AndroidTVCompatibility: 1
   AndroidIsGame: 1
