@@ -87,8 +87,8 @@ public class EnterGateController : MonoBehaviour {
         if (arrowX > gateX - 0.35 && arrowX < gateX + 0.35 
                                     && eulerAngleArrowY < eulerAngleGateY + 18 && eulerAngleArrowY > eulerAngleGateY - 18) {
 
-            Debug.Log("tmac Enter gate in the range of ............... ");
-            Debug.Log("tmac Alpha = " + _arrowMat.color.a);
+            //Debug.Log("tmac Enter gate in the range of ............... ");
+            //Debug.Log("tmac Alpha = " + _arrowMat.color.a);
 
 
             // Condition 2: The distance between the Main Camera(people site) and the Gate is within 0.5 meter. 
@@ -138,7 +138,7 @@ public class EnterGateController : MonoBehaviour {
                     {
                         if (_arrowMat.color.a >= 0.15)
                         {
-                            Debug.Log("tmac currentAlpha = " + _arrowMat.color.a);
+                            //Debug.Log("tmac currentAlpha = " + _arrowMat.color.a);
                             _arrowMat.color = new Color(arrow_red, arrow_green, arrow_blue, (_arrowMat.color.a - 0.15f));
                         }
                         preDistance = currentDistance;

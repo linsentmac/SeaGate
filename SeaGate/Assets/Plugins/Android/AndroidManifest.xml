@@ -12,8 +12,8 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:supportsRtl="true"
-        android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+        android:supportsRtl="true" 
+        android:theme="@style/UnityThemeSelector">
         <activity android:name="com.lenovo.aarforseagate.MainActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

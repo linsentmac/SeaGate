@@ -617,6 +617,10 @@ namespace LARSuite
             plugin.EndAR();
             running = false;
             onResume = null;
+
+            timer = 0;
+            screenTimer = 0;
+            powerOff = false;
         }
 
         IEnumerator OnResume()
