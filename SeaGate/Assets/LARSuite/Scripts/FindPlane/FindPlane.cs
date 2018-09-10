@@ -21,6 +21,7 @@ namespace LARSuite
         }
         public static void SetCallBack(FindPlanesResultCallBack cb)
         {
+           // cb = FindPlanesCallBackFunc;
             s_findPlanesCallBack = FindPlanesCallBackFunc;
             s_findPlanesResultCallBackFunc = cb;
             FindPlaneSO.setCallBack(s_findPlanesCallBack);

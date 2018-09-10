@@ -120,7 +120,7 @@ public class EnterGateController : MonoBehaviour {
             {
                 // update the alpha of arrow
                 float currentDistance = distance;
-                Debug.Log("tmac currentDistance = " + currentDistance + " / preDistance = " + preDistance);
+                //Debug.Log("tmac currentDistance = " + currentDistance + " / preDistance = " + preDistance);
                 if (currentDistance <= 0.5)
                 {
                     if (!defaultSound.isPlaying) {
@@ -200,7 +200,9 @@ public class EnterGateController : MonoBehaviour {
             }
         }
 
-        if (Input.GetKeyUp(KeyCode.JoystickButton0) && gifHintVisiable)
+        
+        if ((Input.GetKeyDown(KeyCode.JoystickButton0) || Input.GetMouseButtonDown(0)) 
+            && gifHintVisiable)
         {
             releaseGifAnimation();
         }

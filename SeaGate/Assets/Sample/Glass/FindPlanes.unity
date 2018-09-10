@@ -299,6 +299,16 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114302099123659482, guid: 25cea5184a400124b8179a79a4a3522b,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114434015245109734, guid: 25cea5184a400124b8179a79a4a3522b,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 25cea5184a400124b8179a79a4a3522b, type: 2}
   m_IsPrefabParent: 0
@@ -346,31 +356,6 @@ Prefab:
     - target: {fileID: 494364, guid: bd325c22da8fc39409d0549d8f9a749a, type: 2}
       propertyPath: m_RootOrder
       value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 11496458, guid: bd325c22da8fc39409d0549d8f9a749a, type: 2}
-      propertyPath: enableGazeInput
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11496458, guid: bd325c22da8fc39409d0549d8f9a749a, type: 2}
-      propertyPath: Block
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 11496458, guid: bd325c22da8fc39409d0549d8f9a749a, type: 2}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 20000012778869200, guid: bd325c22da8fc39409d0549d8f9a749a,
-        type: 2}
-      propertyPath: m_ClearFlags
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2063726, guid: bd325c22da8fc39409d0549d8f9a749a, type: 2}
-      propertyPath: m_ClearFlags
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 11496458, guid: bd325c22da8fc39409d0549d8f9a749a, type: 2}
-      propertyPath: HideEnableGazeInput
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bd325c22da8fc39409d0549d8f9a749a, type: 2}

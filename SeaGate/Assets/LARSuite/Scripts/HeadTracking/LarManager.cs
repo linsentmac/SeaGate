@@ -9,7 +9,7 @@ namespace LARSuite
     public class LarManager : MonoBehaviour, IGlassProfileListener
     {
         static public int starkitVersion_major = 4;
-        static public int starkitVersion_minor = 0;
+        static public int starkitVersion_minor = 3;
         static public int s_eyeLayerMax = 8;
         static public int s_overlayLayerMax = 8;
 
@@ -85,14 +85,16 @@ namespace LARSuite
         public bool Block;
         public float cursorHideTime;
         public float protectScreenTime;
-        public float powerOffTime = 60;
         public bool protectScreeen;
+        public float powerOffTime = 60;
+        private bool powerOff;
         private int frameCount = 0;
         private static WaitForEndOfFrame waitForEndOfFrame = new WaitForEndOfFrame();
         private LarPlugin plugin = null;
         private float sensorWarmupDuration = 1.0f;
         private bool initialized = false;
         private bool running = false;
+	    private bool initializedinstart = false;
         private List<LarEye> eyes = new List<LarEye>(s_eyeLayerMax);
         private List<LarOverlay> overlays = new List<LarOverlay>(s_overlayLayerMax);
         private bool disableInput = false;
@@ -145,7 +147,6 @@ namespace LARSuite
             }
             Input.backButtonLeavesApp = true;
             Application.targetFrameRate = -1;
-
             if (Application.platform == RuntimePlatform.Android)
             {
                 jc = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
@@ -181,50 +182,42 @@ namespace LARSuite
         IEnumerator Start()
         {
             Debug.Log("Starting starkit! version : " + starkitVersion_major + "." + starkitVersion_minor);
-          
             initleftCamera.gameObject.transform.Find("LCanvas").gameObject.SetActive(false);
             initrightCamera.gameObject.transform.Find("RCanvas").gameObject.SetActive(false);
-
-
-          
-                initleftCamera.gameObject.SetActive(true);
-                initrightCamera.gameObject.SetActive(true);
-                initleftCamera.nearClipPlane = 100;
-                initrightCamera.nearClipPlane = 100;
-       
+            initleftCamera.gameObject.SetActive(true);
+            initrightCamera.gameObject.SetActive(true);
             yield return StartCoroutine(Initialize());
             initialized = plugin.IsInitialized();
-            yield return StartCoroutine(plugin.BeginAR((int)settings.cpuPerfLevel, (int)settings.gpuPerfLevel));
-            StartCoroutine(SubmitFrame());
-            if (settings.trackPosition)
-            {
-                initleftCamera.nearClipPlane = 0.03f;
-                initrightCamera.nearClipPlane = 0.03f;
-                leftCamera.nearClipPlane = 100;
-                rightCamera.nearClipPlane = 100;
-            }
-            yield return new WaitUntil(() => plugin.IsRunning() == true);
-            running = true;
-            yield return new WaitUntil(() => plugin.IsSlamReady() == true);
 
-            if (settings.trackPosition && headCamera != null)
-            {
-            
-             
-
-                leftCamera.nearClipPlane = 0.05f;
-                rightCamera.nearClipPlane = 0.05f;
-            }
-         
+            initleftCamera.gameObject.transform.Find("LCanvas").gameObject.SetActive(false);
+            initrightCamera.gameObject.transform.Find("RCanvas").gameObject.SetActive(false);
             initleftCamera.gameObject.SetActive(false);
             initrightCamera.gameObject.SetActive(false);
-            initleftCamera.gameObject.transform.Find("Canvas").gameObject.SetActive(false);
-            initrightCamera.gameObject.transform.Find("Canvas").gameObject.SetActive(false);
+            leftCamera.nearClipPlane = 0.05f;
+            rightCamera.nearClipPlane = 0.05f;
+            leftCamera.gameObject.transform.Find("Canvas").gameObject.SetActive(false);
+            rightCamera.gameObject.transform.Find("Canvas").gameObject.SetActive(false);
+            if (settings.trackPosition)
+            {
+                leftCamera.gameObject.transform.Find("Canvas").gameObject.SetActive(true);
+                rightCamera.gameObject.transform.Find("Canvas").gameObject.SetActive(true);
+            }
+            yield return StartCoroutine(plugin.BeginAR((int)settings.cpuPerfLevel, (int)settings.gpuPerfLevel));
+            StartCoroutine(SubmitFrame());
+            yield return new WaitUntil(() => plugin.IsRunning() == true);
+            running = true;
+            initializedinstart = true;
+            yield return new WaitUntil(() => plugin.IsSlamReady() == true);
+
+            if (settings.trackPosition)
+            {
+                leftCamera.gameObject.transform.Find("Canvas").gameObject.SetActive(false);
+                rightCamera.gameObject.transform.Find("Canvas").gameObject.SetActive(false);
+            }
 
             plugin.RecenterTracking();
             blockFun();
-           
-            Debug.Log("Lar initialized!");
+            Debug.Log("Lar initialized in start!");
         }
 
         private void blockFun()
@@ -307,6 +300,7 @@ namespace LARSuite
             QualitySettings.vSyncCount = (int)settings.vSyncCount;
 
             plugin.SetFieldOfView((float)leftCamera.fieldOfView * Mathf.Deg2Rad);
+
         }
 
         private void AttachGazeInputToEventSystem()
@@ -467,12 +461,7 @@ namespace LARSuite
                 if (eye == null) continue;
 
                 Vector3 eyePos;
-                //eyePos.x = (eye.Side == LarEye.eSide.BOTH ? 0f : (eye.Side == LarEye.eSide.LEFT ? -0.5f : 0.5f) * settings.interPupilDistance);
-                //eyePos.y = (!settings.trackPosition ? settings.headHeight : 0);
-                //eyePos.z = (!settings.trackPosition ? -settings.headDepth : 0);
-                //eyePos += head.transform.localPosition;
-
-                //eye.transform.localPosition = eyePos;
+               
 
                 eye.Format = settings.eyeHdr ? RenderTextureFormat.DefaultHDR : RenderTextureFormat.Default;
                 eye.Resolution = new Vector2(info.displayWidthPixels / 2, info.displayHeightPixels);
@@ -554,12 +543,7 @@ namespace LARSuite
                 if (overlay == null) continue;
 
                 Vector3 eyePos;
-                //eyePos.x = (overlay.Side == LarOverlay.eSide.BOTH ? 0f : (overlay.Side == LarOverlay.eSide.LEFT ? -0.5f : 0.5f) * settings.interPupilDistance);
-                //eyePos.y = (!settings.trackPosition ? settings.headHeight : 0);
-                //eyePos.z = (!settings.trackPosition ? -settings.headDepth : 0);
-                //eyePos += head.transform.localPosition;
-
-                //overlay.transform.localPosition = eyePos;
+              
                 overlay.Format = settings.overlayHdr ? RenderTextureFormat.DefaultHDR : RenderTextureFormat.Default;
                 overlay.Resolution = new Vector2(rightOverlay.pixelWidth / 2, rightOverlay.pixelHeight);
                 overlay.Depth = (int)settings.overlayDepth;
@@ -617,7 +601,6 @@ namespace LARSuite
             plugin.EndAR();
             running = false;
             onResume = null;
-
             timer = 0;
             screenTimer = 0;
             powerOff = false;
@@ -625,43 +608,39 @@ namespace LARSuite
 
         IEnumerator OnResume()
         {
+            if (!initializedinstart )
+            {
+                Debug.Log("LLH OnResume return, do nothing!");
+                yield break;
+            }
+            Debug.Log("LLH OnResume going...");
             initleftCamera.gameObject.transform.Find("LCanvas").gameObject.SetActive(false);
             initrightCamera.gameObject.transform.Find("RCanvas").gameObject.SetActive(false);
+            initleftCamera.gameObject.SetActive(false);
+            initrightCamera.gameObject.SetActive(false);
+            leftCamera.nearClipPlane = 0.05f;
+            rightCamera.nearClipPlane = 0.05f;
+            leftCamera.gameObject.transform.Find("Canvas").gameObject.SetActive(false);
+            rightCamera.gameObject.transform.Find("Canvas").gameObject.SetActive(false);
             if (settings.trackPosition)
             {
-                initleftCamera.gameObject.SetActive(true);
-                initrightCamera.gameObject.SetActive(true);
-                initleftCamera.gameObject.transform.Find("Canvas").gameObject.SetActive(true);
-                initrightCamera.gameObject.transform.Find("Canvas").gameObject.SetActive(true);
-                leftCamera.nearClipPlane = 100;
-                rightCamera.nearClipPlane = 100;
-               
+                leftCamera.gameObject.transform.Find("Canvas").gameObject.SetActive(true);
+                rightCamera.gameObject.transform.Find("Canvas").gameObject.SetActive(true);
             }
-
             yield return StartCoroutine(plugin.BeginAR((int)settings.cpuPerfLevel, (int)settings.gpuPerfLevel));
             StartCoroutine(SubmitFrame());
             yield return new WaitUntil(() => plugin.IsRunning() == true);
             running = true;
             yield return new WaitUntil(() => plugin.IsSlamReady() == true);
 
-
             if (settings.trackPosition)
             {
-               
-                leftCamera.nearClipPlane = 0.05f;
-                rightCamera.nearClipPlane = 0.05f;
-               
+                leftCamera.gameObject.transform.Find("Canvas").gameObject.SetActive(false);
+                rightCamera.gameObject.transform.Find("Canvas").gameObject.SetActive(false);
             }
-        
-                initleftCamera.gameObject.SetActive(false);
-                initrightCamera.gameObject.SetActive(false);
-                initleftCamera.gameObject.transform.Find("Canvas").gameObject.SetActive(false);
-                initrightCamera.gameObject.transform.Find("Canvas").gameObject.SetActive(false);
-          
+
             plugin.RecenterTracking();
             blockFun();
-           
-           
             yield break;
 
         }
@@ -715,8 +694,6 @@ namespace LARSuite
 
         }
 
-        private bool powerOff;
-
         private void protectScreen()
         {
 
@@ -730,10 +707,7 @@ namespace LARSuite
 
                 headRotation = head.transform.rotation;
 
-                //preScreenrotX = Math.Round(headRotation.x, 2);
-                //preScreenrotY = Math.Round(headRotation.y, 2);
-                //preScreenrotZ = Math.Round(headRotation.z, 2);
-                //preScreenrotW = Math.Round(headRotation.w, 2);
+             
 
                 preScreenrotX = headRotation.eulerAngles.x;
                 preScreenrotY = headRotation.eulerAngles.y;
@@ -748,25 +722,19 @@ namespace LARSuite
             //  Debug.Log("posBO = " + posBO + " / rotBO = " + rotBO);
             if (!rotBO)
             {
-                //screenrotX = Math.Round(head.transform.rotation.x, 2);
-                //screenrotY = Math.Round(head.transform.rotation.y, 2);
-                //screenrotZ = Math.Round(head.transform.rotation.z, 2);
-                //screenrotW = Math.Round(head.transform.rotation.w, 2);
+               
 
                 screenrotX = head.transform.rotation.eulerAngles.x;
                 screenrotY = head.transform.rotation.eulerAngles.y;
                 screenrotZ = head.transform.rotation.eulerAngles.z;
+
             }
 
 
             double rotXdiff = Math.Abs(screenrotX - preScreenrotX);
             double rotYdiff = Math.Abs(screenrotY - preScreenrotY);
             double rotZdiff = Math.Abs(screenrotZ - preScreenrotZ);
-            //double rotWdiff = Math.Abs(screenrotW - preScreenrotW);
-
-
-
-
+          
 
 
             if ((posBO == true && rotBO == true) || (rotXdiff < threshold
@@ -789,11 +757,7 @@ namespace LARSuite
                     }
 
 
-                    //initleftCamera.gameObject.SetActive(true);
-                    //initrightCamera.gameObject.SetActive(true);
-                    //initleftCamera.gameObject.transform.Find("blackCanvas").gameObject.SetActive(true);
-                    //initrightCamera.gameObject.transform.Find("blackCanvas").gameObject.SetActive(true);
-                    //     Debug.Log("black   is  true"  );
+                   
                 }
 
 
@@ -801,11 +765,7 @@ namespace LARSuite
                 {
                     leftCamera.nearClipPlane = 0.05f;
                     rightCamera.nearClipPlane = 0.05f;
-                    //leftCamera.enabled = true;
-                    //rightCamera.enabled = true;
-                    //initleftCamera.gameObject.transform.Find("blackCanvas").gameObject.SetActive(false);
-                    //initrightCamera.gameObject.transform.Find("blackCanvas").gameObject.SetActive(false);
-                    //  Debug.Log("blackCanvas  is false");
+                    
                 }
 
             }
@@ -813,10 +773,7 @@ namespace LARSuite
             {
                 leftCamera.nearClipPlane = 0.05f;
                 rightCamera.nearClipPlane = 0.05f;
-                //leftCamera.enabled = true;
-                //rightCamera.enabled = true;
-                //initleftCamera.gameObject.transform.Find("blackCanvas").gameObject.SetActive(false);
-                //initrightCamera.gameObject.transform.Find("blackCanvas").gameObject.SetActive(false);
+               
                 screenTimer = 0;//只要移动就立马计时从零开始
 
                 powerOff = false;
@@ -832,15 +789,14 @@ namespace LARSuite
                 jo.Call<int>("screenOff");
             }
         }
-
         private void DestoryCursor()
         {
             GameObject cursor = head.transform.Find("GazeCursor").gameObject;
-         
-                
+
+
 
             Timestamps -= Time.deltaTime;
-          
+
 
             if (Timestamps <= 0)
             {
@@ -850,14 +806,12 @@ namespace LARSuite
 
                 headRotation = head.transform.rotation;
 
-                //preScreenrotX = Math.Round(headRotation.x, 2);
-                //preScreenrotY = Math.Round(headRotation.y, 2);
-                //preScreenrotZ = Math.Round(headRotation.z, 2);
-                //preScreenrotW = Math.Round(headRotation.w, 2);
+             
 
                 preScreenrotX = head.eulerAngles.x;
                 preScreenrotY = head.eulerAngles.y;
                 preScreenrotZ = head.eulerAngles.z;
+
             }
 
             bool posBO = false;
@@ -865,17 +819,15 @@ namespace LARSuite
 
             posBO = (headPositon == head.transform.position) ? true : false;
             rotBO = (headRotation == head.transform.rotation) ? true : false;
-          //  Debug.Log("posBO = " + posBO + " / rotBO = " + rotBO);
+            //  Debug.Log("posBO = " + posBO + " / rotBO = " + rotBO);
             if (!rotBO)
             {
-                //screenrotX = Math.Round(head.transform.rotation.x, 2);
-                //screenrotY = Math.Round(head.transform.rotation.y, 2);
-                //screenrotZ = Math.Round(head.transform.rotation.z, 2);
-                //screenrotW = Math.Round(head.transform.rotation.w, 2);
+             
 
                 screenrotX = head.eulerAngles.x;
                 screenrotY = head.eulerAngles.y;
                 screenrotZ = head.eulerAngles.z;
+
             }
 
 
@@ -884,14 +836,12 @@ namespace LARSuite
             double rotZdiff = Math.Abs(screenrotZ - preScreenrotZ);
             //double rotWdiff = Math.Abs(screenrotW - preScreenrotW);
 
-
             if (enableGazeInput == true)
             {
                 if ((posBO == true && rotBO == true) || (rotXdiff < threshold
                        && rotYdiff < threshold
                        && rotZdiff < threshold))
                 {
-
                     timer += Time.deltaTime;
 
                     if (timer >= cursorHideTime)
@@ -906,7 +856,7 @@ namespace LARSuite
                     else
                     {
                         cursor.SetActive(true);
-                   
+
                     }
 
                 }
@@ -915,7 +865,7 @@ namespace LARSuite
 
                     timer = 0;//只要移动就立马计时从零开始
                     cursor.SetActive(true);
-                 
+
 
                 }
 
@@ -923,14 +873,14 @@ namespace LARSuite
             else
             {
                 cursor.SetActive(false);
-            
+
 
             }
-             
 
-           
 
-        
+
+
+
         }
 
         public void OnLenseSeperationChange(float seperation)

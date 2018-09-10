@@ -3,13 +3,14 @@ Release Note{
   "product": "stARlit_device.SDK",
   "version": {
     "major":4,
-    "minor": 0,
-    "revision": 4.0,
+    "minor": 3,
+    "revision": 4.3,
     "build": 0,
-    "changelog1": "Change the black screen function "£¬
-    "changelog2": "Solve the problem of restarting without animation after the screen is turned off",
-	"changelog3": "Solve occasional problems with startup animations "£¬
-	"changelog4": "Solve the problem of findPlane display "
+    "changelog1": "Provide an interface to get the current version number "£¬
+    "changelog2": "Fix black screen issue when start not finished but AR is running"£¬
+	"changelog3": "Fix black screen / device dead when suspend in middle of start()"£¬
+	"changelog4": "Provides a method for externally obtaining parameters of RGBIMU"
+	
 	 
 
   }
