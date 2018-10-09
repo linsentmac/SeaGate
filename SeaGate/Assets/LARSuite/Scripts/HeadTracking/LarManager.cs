@@ -100,7 +100,8 @@ namespace LARSuite
         private bool disableInput = false;
         private Coroutine onResume = null;
 
-        private float Timestamps = 0.2f;
+        private float cursorTimestamps = 1f;
+        private float screenTimestamps = 1f;
         private float timer = 0;
         private float screenTimer = 0;
         private Vector3 headPositon;
@@ -697,11 +698,11 @@ namespace LARSuite
         private void protectScreen()
         {
 
-            Timestamps -= Time.deltaTime;
+            screenTimestamps -= Time.deltaTime;
 
-            if (Timestamps <= 0)
+            if (screenTimestamps <= 0)
             {
-                Timestamps = 0.2f;
+                screenTimestamps = 1f;
 
                 headPositon = head.transform.position;
 
@@ -720,15 +721,15 @@ namespace LARSuite
             posBO = (headPositon == head.transform.position) ? true : false;
             rotBO = (headRotation == head.transform.rotation) ? true : false;
             //  Debug.Log("posBO = " + posBO + " / rotBO = " + rotBO);
-            if (!rotBO)
-            {
+            //if (!rotBO)
+            //{
                
 
                 screenrotX = head.transform.rotation.eulerAngles.x;
                 screenrotY = head.transform.rotation.eulerAngles.y;
                 screenrotZ = head.transform.rotation.eulerAngles.z;
 
-            }
+            //}
 
 
             double rotXdiff = Math.Abs(screenrotX - preScreenrotX);
@@ -795,12 +796,12 @@ namespace LARSuite
 
 
 
-            Timestamps -= Time.deltaTime;
+            cursorTimestamps -= Time.deltaTime;
 
 
-            if (Timestamps <= 0)
+            if (cursorTimestamps <= 0)
             {
-                Timestamps = 0.2f;
+                cursorTimestamps = 1f;
 
                 headPositon = head.transform.position;
 
@@ -811,7 +812,7 @@ namespace LARSuite
                 preScreenrotX = head.eulerAngles.x;
                 preScreenrotY = head.eulerAngles.y;
                 preScreenrotZ = head.eulerAngles.z;
-
+                //Debug.Log("Tmac update preScreen preScreenrotY  ...... " + preScreenrotY);
             }
 
             bool posBO = false;
@@ -820,22 +821,23 @@ namespace LARSuite
             posBO = (headPositon == head.transform.position) ? true : false;
             rotBO = (headRotation == head.transform.rotation) ? true : false;
             //  Debug.Log("posBO = " + posBO + " / rotBO = " + rotBO);
-            if (!rotBO)
-            {
+
+            //if (!rotBO)
+            //{
              
 
                 screenrotX = head.eulerAngles.x;
                 screenrotY = head.eulerAngles.y;
                 screenrotZ = head.eulerAngles.z;
-
-            }
+                //Debug.Log("Tmac screenrotY " + screenrotY);
+            //}
 
 
             double rotXdiff = Math.Abs(screenrotX - preScreenrotX);
             double rotYdiff = Math.Abs(screenrotY - preScreenrotY);
             double rotZdiff = Math.Abs(screenrotZ - preScreenrotZ);
             //double rotWdiff = Math.Abs(screenrotW - preScreenrotW);
-
+            //Debug.Log("posBO = " + posBO + "/ rotBO =" + rotBO + " /rotXdiff = " + rotXdiff + " /rotYdiff = " + rotYdiff + " /rotZdiff = " + rotZdiff);
             if (enableGazeInput == true)
             {
                 if ((posBO == true && rotBO == true) || (rotXdiff < threshold
