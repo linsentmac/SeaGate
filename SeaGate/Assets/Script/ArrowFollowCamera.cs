@@ -114,7 +114,7 @@ namespace LARSuite
             {
                 targetRotationX = Math.Atan(y_dis / z_dis) / Math.PI * 180 + x_rotation_Init;
             }
-            if (Math.Abs(x_dis) > 0.3 && Math.Abs(z_dis) > 0.1)
+            if (Math.Abs(x_dis) > 0.5 && Math.Abs(z_dis) > 0.1)
             {
                 targetRotationY = Math.Atan(x_dis / z_dis) / Math.PI * 180 + y_rotation_Init;
             }
@@ -123,11 +123,11 @@ namespace LARSuite
             //Debug.Log("tmac arrow rotation x = " + targetRotationX + " y = " + targetRotationY);
 
             double targetRotationZ = 0;
-            if (arrowX < -0.3)
+            if (arrowX < -0.4)
             {
                 targetRotationZ = 15;
             }
-            else if (arrowX > 0.3)
+            else if (arrowX > 0.4)
             {
                 targetRotationZ = -15;
             }

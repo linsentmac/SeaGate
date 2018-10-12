@@ -84,7 +84,7 @@ public class EnterGateController : MonoBehaviour {
         // Condition 1: Arrow obj must enter along the range of gate (Gate Range contains position <x, y> and rotation( eulerAngle y))
         //arrowX > gateX - 0.3 && arrowX < gateX + 0.4 && arrowY < gateY + 0.4 && arrowY > gateY - 0.3
                                    // && eulerAngleArrowY < eulerAngleGateY + 45 && eulerAngleArrowY > eulerAngleGateY - 45
-        if (arrowX > gateX - 0.35 && arrowX < gateX + 0.35 
+        if (arrowX > gateX - 0.5 && arrowX < gateX + 0.5 
                                     && eulerAngleArrowY < eulerAngleGateY + 18 && eulerAngleArrowY > eulerAngleGateY - 18) {
 
             //Debug.Log("tmac Enter gate in the range of ............... ");

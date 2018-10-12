@@ -5,8 +5,8 @@ using UnityEngine;
 public class smallFishControl : MonoBehaviour {
     public static smallFishControl _instance;
     public List<List<FishSwiming>> fishList = new List<List<FishSwiming>>();
-    private int minNum = 12;
-    private int maxNum = 20;
+    private int minNum = 7;
+    private int maxNum = 12;
     private GameObject FishParent;
     public GameObject gateObject;
     public static int FishNum = 0;
@@ -85,12 +85,12 @@ public class smallFishControl : MonoBehaviour {
             if (fishes != null && fishes.Count > 0)
             {
                 fishList.Add(fishes);
-                if (fishList.Count > 5 && FishNum > 100)
+                if (fishList.Count > 5 && FishNum > 60)
                 {
                     Debug.Log(fishList[0].Count);
                     for (int i = 0; i < fishList[0].Count; i++)
                     {
-
+                            
                         fishList[0][i].Death = true;
                         fishList[0][i].Destory = true;
                         FishNum--;
