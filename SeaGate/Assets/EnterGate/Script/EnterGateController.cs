@@ -92,7 +92,7 @@ public class EnterGateController : MonoBehaviour {
 
 
             // Condition 2: The distance between the Main Camera(people site) and the Gate is within 0.5 meter. 
-            if (isFirstEnter && distance < 0)
+            if (isFirstEnter && distance < 0.3)
             {
                 isFirstEnter = false;
 
@@ -107,6 +107,11 @@ public class EnterGateController : MonoBehaviour {
                     whale.SetActive(true);
                 }
                 whaleRenderer.enabled = true;
+
+                if (!defaultSound.isPlaying)
+                {
+                    defaultSound.Play();
+                }
 
                 //sphereRenderer.enabled = true;
 
@@ -123,17 +128,10 @@ public class EnterGateController : MonoBehaviour {
                 //Debug.Log("tmac currentDistance = " + currentDistance + " / preDistance = " + preDistance);
                 if (currentDistance <= 0.5)
                 {
-                    if (!defaultSound.isPlaying) {
-                        defaultSound.Play();
-                    }
                     //arrowObject.SetActive(false);
                     _arrowMat.color = new Color(arrow_red, arrow_green, arrow_blue, 0);
                 }
                 else {
-                    if (defaultSound.isPlaying)
-                    {
-                        defaultSound.Pause();
-                    }
                     if (currentDistance - preDistance < -0.05)
                     {
                         if (_arrowMat.color.a >= 0.15)
@@ -182,7 +180,11 @@ public class EnterGateController : MonoBehaviour {
                 if (coralObject.activeSelf) {
                     coralObject.SetActive(false);
                 }
-                
+
+                if (defaultSound.isPlaying)
+                {
+                    defaultSound.Pause();
+                }
 
             }
 
@@ -190,7 +192,7 @@ public class EnterGateController : MonoBehaviour {
 
         
 
-        if (gifHintVisiable && distance < 0) {
+        if (gifHintVisiable && distance < 0.3) {
             if (!clichGif.activeSelf) {
                 clichGif.SetActive(true);
             }
